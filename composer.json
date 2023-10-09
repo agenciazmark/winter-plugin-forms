@@ -1,0 +1,11 @@
+{
+  "name": "zmark/forms",
+  "type": "winter-plugin",
+  "description": "Plugin que estende o Martim.Forms",
+  "authors": [
+    {
+      "name": "Gabriel Severo",
+      "email": "contato@zmark.com.br"
+    }
+  ]
+}

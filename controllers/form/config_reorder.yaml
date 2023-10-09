@@ -1,0 +1,5 @@
+title: Form
+modelClass: Zmark\Forms\Models\Form
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

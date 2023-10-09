@@ -1,0 +1,17 @@
+name: Form
+modelClass: Zmark\Forms\Models\Form
+form: $/zmark/forms/models/form/fields.yaml
+defaultRedirect: zmark/forms/form
+create:
+    title: 'zmark.forms::lang.crud.cadastrar'
+    redirect: 'zmark/forms/form/update/:id'
+    redirectClose: zmark/forms/form
+    flashSave: 'zmark.forms::lang.crud.cadastrado'
+update:
+    title: 'zmark.forms::lang.crud.atualizar'
+    redirect: zmark/forms/form
+    redirectClose: zmark/forms/form
+    flashSave: 'zmark.forms::lang.crud.atualizado'
+    flashDelete: 'zmark.forms::lang.crud.excluido'
+preview:
+    title: 'zmark.forms::lang.crud.visualizar'

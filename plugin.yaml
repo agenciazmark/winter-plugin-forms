@@ -1,0 +1,21 @@
+plugin:
+    name: 'zmark.forms::lang.plugin.name'
+    description: 'zmark.forms::lang.plugin.description'
+    author: Zmark
+    icon: wn-icon-envelope
+    replaces: {  }
+navigation:
+    main-menu-forms:
+        label: Formulários
+        url: zmark/forms/form
+        icon: icon-envelope
+        order: '400'
+        sideMenu:
+            side-menu-forms:
+                label: Formulário
+                url: zmark/forms/form
+                icon: icon-toggle-on
+            side-menu-configuration:
+                label: Configurações
+                url: zmark/forms/configuration
+                icon: icon-gears

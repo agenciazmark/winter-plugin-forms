@@ -1,0 +1,16 @@
+name: Configurações
+modelClass: Zmark\Forms\Models\Configuration
+form: $/zmark/forms/models/configuration/fields.yaml
+defaultRedirect: zmark/forms/configuration
+create:
+    title: 'zmark.forms::lang.crud.cadastrar'
+    redirect: 'zmark/forms/configuration/update/:id'
+    redirectClose: zmark/forms/configuration
+    flashSave: 'zmark.forms::lang.crud.cadastrado'
+update:
+    title: 'zmark.forms::lang.crud.atualizar'
+    redirect: zmark/forms/configuration
+    redirectClose: zmark/forms/configuration
+    flashSave: 'zmark.forms::lang.crud.atualizado'
+    flashDelete: 'zmark.forms::lang.crud.excluido'
+preview: {  }
