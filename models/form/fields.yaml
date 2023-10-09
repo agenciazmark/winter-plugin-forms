@@ -99,7 +99,7 @@ tabs:
                         type: text
         _crm_notification:
             span: full
-            path: $/zmark/form/partials/_crm_notification.htm
+            path: $/zmark/forms/partials/_crm_notification.htm
             type: hint
             tab: CRM
         status_crm:
