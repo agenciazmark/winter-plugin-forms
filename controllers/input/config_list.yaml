@@ -1,7 +1,7 @@
-title: Form
-modelClass: Zmark\Forms\Models\Form
-list: $/zmark/forms/models/form/columns.yaml
-recordUrl: 'zmark/forms/form/update/:id'
+title: Input
+modelClass: Zmark\Forms\Models\Input
+list: $/zmark/forms/models/input/columns.yaml
+recordUrl: 'zmark/forms/input/update/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 recordsPerPage: 20
 showSetup: true

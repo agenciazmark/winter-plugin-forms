@@ -7,7 +7,7 @@ plugin:
 navigation:
     main-menu-forms:
         label: Formulários
-        url: zmark/forms/form
+        url: zmark/forms/input
         icon: icon-envelope
         order: '400'
         sideMenu:
@@ -15,7 +15,17 @@ navigation:
                 label: Formulário
                 url: zmark/forms/form
                 icon: icon-toggle-on
+                permissions:
+                    - forms
+            side-menu-input:
+                label: Campos
+                url: zmark/forms/input
+                icon: icon-list
             side-menu-configuration:
                 label: Configurações
                 url: zmark/forms/configuration
                 icon: icon-gears
+permissions:
+    forms:
+        tab: Formulários
+        label: 'Lista de Formulários'

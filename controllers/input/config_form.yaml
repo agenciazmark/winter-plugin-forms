@@ -1,0 +1,16 @@
+name: Input
+modelClass: Zmark\Forms\Models\Input
+form: $/zmark/forms/models/input/fields.yaml
+defaultRedirect: zmark/forms/input
+create:
+    title: 'zmark.forms::lang.crud.cadastrar'
+    redirect: 'zmark/forms/input/update/:id'
+    redirectClose: zmark/forms/input
+    flashSave: 'zmark.forms::lang.crud.cadastrado'
+update:
+    title: 'zmark.forms::lang.crud.atualizar'
+    redirect: zmark/forms/input
+    redirectClose: zmark/forms/input
+    flashSave: 'zmark.forms::lang.crud.atualizado'
+    flashDelete: 'zmark.forms::lang.crud.excluido'
+preview: {  }

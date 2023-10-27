@@ -8,7 +8,6 @@ use Model;
 class Form extends Model
 {
     use \Winter\Storm\Database\Traits\Validation;
-    use \Winter\Storm\Database\Traits\Sortable;
 
     /**
      * @var string The database table used by the model.
@@ -24,46 +23,16 @@ class Form extends Model
     /**
      * @var array Attribute names to encode and decode using JSON.
      */
-    public $jsonable = ['options'];
+    public $jsonable = [];
 
-    public function scopeActive($query)
-    {
-        return $query->where('status', true);
-    }
+    public $belongsToMany = [
+        'inputs' => [
+            'Zmark\Forms\Models\Form',
+            'table' => 'zmark_forms_forms_inputs',
+            'key' => 'form_id',
+            'otherKey' => 'input_id'
+        ], 
+    ];
 
-    public function scopeBanner($query)
-    {
-        return $query->where('status', true)->where('form','banner');
-    }
-
-    public function beforeSave()
-    {
-        // garante que a slug está no formato correto e é única
-        if($this->slug == null)
-        {
-            $this->slug = \Str::slug( $this->title );
-            $record = Form::where('id','!=',$this->id)->where('form',$this->title)->where('slug',$this->slug)->first();
-            if($record)
-            {
-                $this->slug = $this->slug.'-'.$this->id;
-            }
-        }
-        else
-        {
-            $this->slug = \Str::slug( $this->slug);
-            $record = Form::where('id','!=',$this->id)->where('form',$this->title)->where('slug',$this->slug)->first();
-            if($record)
-            {
-                //verifica se é um cadastro novo ou antigo, se for novo (não tem ainda um id) pega o ultimo cadastro e soma 1.
-                if($this->id) {
-                    $id = $this->id;
-                } else {
-                    $ultimo = Form::orderBy('id','DESC')->first();
-                    $id = $ultimo->id + 1;
-                }
-                $this->slug = $this->slug.'-'.$id;
-            }
-        }
-    }
 
 }
