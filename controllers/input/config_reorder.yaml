@@ -1,5 +1,5 @@
-title: Form
-modelClass: Zmark\Forms\Models\Form
+title: Input
+modelClass: Zmark\Forms\Models\Input
 nameFrom: title
 toolbar:
     buttons: reorder_toolbar
