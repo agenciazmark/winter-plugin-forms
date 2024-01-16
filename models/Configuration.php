@@ -25,4 +25,13 @@ class Configuration extends Model
      * @var array Attribute names to encode and decode using JSON.
      */
     public $jsonable = ['recipients'];
+
+    public $belongsToMany = [
+        'forms' => [
+            'Zmark\Forms\Models\Form',
+            'table' => 'zmark_forms_configurations_forms',
+            'key' => 'configuration_id',
+            'otherKey' => 'form_id'
+        ], 
+    ];
 }

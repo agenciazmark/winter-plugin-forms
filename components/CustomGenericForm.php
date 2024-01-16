@@ -63,6 +63,13 @@ class CustomGenericForm extends GenericForm
             $post = post();
         }
 
+        // VERIFICA QUAL O FORMULÁRIO QUE ESTÁ ENVIANDO
+        if($post['form_id']) {
+            $formId = $post['form_id'];
+        } else {
+            $formId = null;
+        }
+
         // SANITIZE FORM DATA
         if ($this->property('sanitize_data') == 'htmlspecialchars') {
             $post = $this->array_map_recursive(function ($value) {
@@ -152,7 +159,7 @@ class CustomGenericForm extends GenericForm
         }
 
         // REMOVE EXTRA FIELDS FROM STORED DATA
-        unset($post['_token'], $post['g-recaptcha-response'], $post['_session_key'], $post['files'], $post['registraAcesso']);
+        unset($post['_token'], $post['g-recaptcha-response'], $post['_session_key'], $post['files'], $post['registraAcesso'], $post['form_id']);
 
         // FIRE BEFORE SAVE EVENT
         Event::fire('martin.forms.beforeSaveRecord', [&$post, $this]);
@@ -184,7 +191,16 @@ class CustomGenericForm extends GenericForm
         //dados personalizados para o envio
         $properties = $this->getProperties();        
 
-        $configuration = Configuration::where('status',true)->first();
+        // pega a configuração pelo ID do form enviado pelo frontend. Caso não seja enviado ou não encontre uma configuração vinculada, pega a primeira ativa.
+        if($formId) {
+            $configuration = Configuration::where('status',true)->whereHas('forms', function ($q) use($formId){
+                $q->where('form_id',$formId);
+            })->first();
+        } 
+        if(!$configuration) {
+            $configuration = Configuration::where('status',true)->first();
+        }
+        
         if($configuration) {
             //emails
             foreach ($configuration->recipients as $recipient) {

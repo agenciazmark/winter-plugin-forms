@@ -10,9 +10,18 @@ fields:
         default: 1
         type: switch
         comment: 'Se desmarcado, o envio ficará salvo apenas no gerenciador.'
+    forms:
+        label: Formulários
+        nameFrom: title
+        descriptionFrom: description
+        emptyOption: 'Selecione pelo menos um Formulário'
+        span: left
+        required: 1
+        type: relation
+        commentAbove: 'Escolha quais formulários usarão essas configurações'
     subject:
         label: 'Assunto do E-mail'
-        span: auto
+        span: left
         default: 'Formulário enviado pelo Site'
         required: 1
         type: text

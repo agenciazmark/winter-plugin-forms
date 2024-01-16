@@ -54,3 +54,6 @@
 1.0.19:
     - 'Updated table zmark_forms_inputs'
     - builder_table_update_zmark_forms_inputs_4.php
+1.0.20:
+    - 'Created table zmark_forms_configurations_forms'
+    - builder_table_create_zmark_forms_configurations_forms.php

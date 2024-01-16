@@ -9,6 +9,13 @@ columns:
         type: switch
         searchable: true
         sortable: true
+    forms:
+        label: Formulário
+        type: text
+        searchable: true
+        sortable: true
+        select: title
+        relation: forms
     subject:
         label: Assunto
         type: text

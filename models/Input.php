@@ -31,10 +31,17 @@ class Input extends Model
         return $query->where('status', true);
     }
 
-    public function scopeBanner($query)
+    public function scopePartial($query)
     {
         return $query->where('status', true)->whereHas('forms', function($q){
             $q->where('form_id', '1');
+        });
+    }
+
+    public function scopeContact($query)
+    {
+        return $query->where('status', true)->whereHas('forms', function($q){
+            $q->where('form_id', '2');
         });
     }
 

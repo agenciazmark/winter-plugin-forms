@@ -27,10 +27,16 @@ class Form extends Model
 
     public $belongsToMany = [
         'inputs' => [
-            'Zmark\Forms\Models\Form',
+            'Zmark\Forms\Models\Input',
             'table' => 'zmark_forms_forms_inputs',
             'key' => 'form_id',
             'otherKey' => 'input_id'
+        ], 
+        'configurations' => [
+            'Zmark\Forms\Models\Configuration',
+            'table' => 'zmark_forms_configurations_forms',
+            'key' => 'form_id',
+            'otherKey' => 'configuration_id',
         ], 
     ];
 
